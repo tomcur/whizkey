@@ -31,6 +31,14 @@ function Vault(vault)
 	};
 	
 	/**
+	* @returns {string} Hash
+	*/
+	this.GetHash = function()
+	{
+		return this.vault.hash;
+	};
+	
+	/**
 	* Checks whether the vault object contains an actual vault.
 	* @returns {boolean} True if object is a vault, false otherwise.
 	*/
