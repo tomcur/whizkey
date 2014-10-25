@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Whizkey</title>
+		<link rel="stylesheet" href="options.css"/>
+		<script src="../jquery/jquery.min.js"></script>
+		<script src="../functions.js"></script>
+		<script src="../crypto/forge.min.js"></script>
+		<script src="options.js"></script>    
+		<script src="jquery.treetable.js"></script>
+		<link href="css/jquery.treetable.css" rel="stylesheet" type="text/css" />
+		<link href="css/jquery.treetable.theme.default.css" rel="stylesheet" type="text/css" />
+		<!--
+		http://ludo.cubicphuse.nl/jquery-treetable/
+		-->
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="header">
+				<div id="logo">
+					<img src="../images/icon-cropped.png">
+				</div>
+				<h1>Whizkey</h1>
+				<hr class="light">
+			</div>
+			<div id="content">
+				
+				<a href="#general" data-i18n="option_general"></a>
+				| 
+				<a href="#vaults" data-i18n="option_vaults"></a>
+				| 
+				<a href="#addvault" data-i18n="option_add_vault"></a>
+				| 
+				<a href="#export" data-i18n="option_export"></a>
+				| 
+				<a href="#import" data-i18n="option_import"></a>
+				
+				<hr class="light">
+				
+				<div id="general" class="paging">
+					<h3 data-i18n="option_general_title"></h3>
+					<a href="#" id="clear-data">Clear all data</a>
+					<br>
+					Do stuff: <input type="checkbox">
+				</div>
+				
+				<div id="vaults" class="paging">
+					<h3 data-i18n="option_vaults_title"></h3>
+					<p data-i18n="option_vault_table_introduction"></p>
+					
+					<table id="vault-list-table">
+						<thead>
+							<tr>
+								<th data-i18n="option_vault_table_header_name"></th>
+								<th data-i18n="option_vault_table_header_data"></th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+					
+					<ul id="vault-list-root"></ul>
+				</div>
+				
+				<div id="addvault" class="paging">
+					<h3 data-i18n="option_add_vault_title"></h3>
+					<div id="addvault_container">
+						<div data-i18n="option_add_vault_introduction"></div>
+						<form id="addvault_form">
+							<table>
+								<!-- Vault name -->
+								<tr><td>
+									<label for="addvault_name" data-i18n="option_add_vault_vault_name"></label>
+								</td><td>
+									<input type="text" id="addvault_name" name="addvault_name">
+								</td></tr>
+								<tr><td colspan="2" data-i18n="option_add_vault_will_be_used_to_generate">
+								</td></tr>
+								
+								<!-- Password -->
+								<tr><td>
+									<label for="addvault_password" data-i18n="option_add_vault_password"></label>
+								</td><td>
+									<input type="password" id="addvault_password" name="addvault_password">
+								</td></tr>
+								<tr><td>
+									<label for="addvault_password_confirm" data-i18n="option_add_vault_password_confirm"></label>
+								</td><td>
+									<input type="password" id="addvault_password_confirm" name="addvault_password_confirm">
+								</td></tr>
+								
+								<!-- Basic information -->
+								<tr><td>
+									<label for="addvault_firstname" data-i18n="option_add_vault_first_name"></label>
+								</td><td>
+									<input type="text" id="addvault_firstname" name="addvault_firstname">
+								</td></tr>
+								<tr><td>
+									<label for="addvault_birthplace" data-i18n="option_add_vault_birthplace"></label>
+								</td><td>
+									<input type="text" id="addvault_birthplace" name="addvault_birthplace">
+								</td></tr>
+								<tr><td colspan="2">
+									<input id="addvault_submit" type="submit" data-i18n-value="option_add_vault_submit_button">
+								</td></tr>
+							</table>
+						</form>
+						
+						<div id="addvault_status">
+						</div>
+					</div>
+					
+					<div id="addvault_success" data-i18n="option_add_vault_success">
+					</div>
+				</div>
+
+				<div id="export" class="paging">
+					<h3 data-i18n="option_export_title"></h3>
+					<p data-i18n="option_export_introduction"></p>
+					<textarea id="export-field" readonly></textarea>
+				</div>
+				
+				<div id="import" class="paging">
+					<h3 data-i18n="option_import_title"></h3>
+					<p data-i18n="option_import_introduction"></p>
+					<textarea id="import-field"></textarea>
+					
+					<button id="import-field-button" data-i18n="option_import_button"></button>
+					
+					<div id="import-status"></div>
+				</div>
+				
+				<div id="status"></div>
+				
+				<hr class="light">
+			</div>
+		</div>
+	</body>
+</html>

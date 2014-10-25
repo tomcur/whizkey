@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Whizkey</title>
+		<link rel="stylesheet" href="dialog_popup.css"/>
+		<script src="../jquery/jquery.min.js"></script>
+		<script src="../jquery/jquery.hideshowpassword.min.js"></script>
+		<script src="../functions.js"></script>
+		<script src="../crypto/forge.min.js"></script>
+		<script src="../crypto/password.js"></script>
+		<script src='dialog_popup.js'></script>
+		<script src="punycode.min.js"></script>
+		<script src="publicsuffixlist.min.js"></script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div style="position: absolute; top: 15px; right:15px;"><a href="#" id="close-button">Close</a></div>
+			<div id="header">
+				<div id="logo">
+					<img src="../images/icon-cropped.png">
+				</div>
+				<h1>Whizkey</h1>
+				<hr class="light">
+			</div>
+			<div id="content">				
+				<div id="whizkey-gen">
+					<div id="domain" class="domainname"></div><div id="domain-link-title"></div>
+					<br>
+					<a href="#" id="linkwebsite">Link this website</a>
+					<hr class="light">
+					<div>
+						<input type="password" id="masterPassword" name="masterPassword" placeholder="Master Password">
+					</div>
+					<div style="height: 5px;"></div>
+					<div>
+						<select name="account" id="account"></select>
+					</div>
+					<div id="add-acount-container">
+						<a href="#" id="newaccount">Add account</a>
+					</div>
+					
+					<div style="height: 5px;"></div>
+					<div id="generate-field">
+						<div id="generate-button" class="blockbutton buttondefault">
+							<div class="button-text">Generate</div>
+						</div>
+						<div id="generated">
+							<div id="password-copy" class="blockbutton"></div>
+							<div id="password-generated" class="blockbutton">
+								<div id="password-mask-text" class="button-text">****</div>
+							</div>
+						</div>
+						<div id="generated-nomask">
+							<div id="password-nomask">
+								<div id="password-nomask-text" class="button-text"></div>
+							</div>
+						</div>
+					</div>
+					<hr class="light">
+					<div id="using-vault">
+						Vault: <span id="default-vault"></span>
+					</div>
+				</div>
+				
+				<div id="whizkey-result">
+					&lt; Return
+					<div id="whizkey-result-password">
+					</div>
+				</div>
+				
+				<!-- Add account to domain -->
+				<div id="whizkey-new-account">
+					<p>Please enter the account name. If the account name is an email address, add the domain part as well (e.g. &quot;bob@example.com&quot;).</p>
+					<input id="newaccount-name" type="text" placeholder="Account Name">
+					<hr class="light">
+					<input type="checkbox" id="newaccount-advanced"><label for="newaccount-advanced">Advanced</label>
+					<div id="whizkey-new-advanced">
+						<p>
+							Enter the &quot;count&quot; of the password. This is useful when a service has been compromised and passwords need to be changed. If you need a new password for a service you simply increment the count by one.
+						</p>
+						<p>
+							If this is the first password for this account for this service, leave the count at 1.
+						</p>
+						<input type="number" id="newaccount-count" name="newaccount-count" min="1" value="1">
+						<hr class="light">
+						<p>
+							Select the type of the password:
+						</p>
+						<select name="newacount-type">
+							<option value="secure">Secure</option>
+							<option value="long">Long</option>
+							<option value="medium" selected>Medium</option>
+							<option value="short">Short</option>
+							<option value="pin">PIN</option>
+						</select>
+					</div>
+					<hr class="light">
+					<div id="newaccount-status"></div>
+					<!--<input type="button" id="newaccount-submit" name="newaccount-submit" value="Add">-->
+					<div class="buttoncontainer">
+						<div id="newaccount-submit" class="buttondefault blockbutton">
+							<div class="button-text">Add</div>
+						</div>
+					</div>
+					<hr class="light">
+					<a href="#" class="whizkey-return">&lt; Return</a>
+				</div>
+				
+				<!-- Account add success message -->
+				<div id="whizkey-new-success">
+					<p>
+						The account has been added.
+					</p>
+					<hr class="light">
+					<a href="#" class="whizkey-return">&lt; Return</a>
+				</div>
+				
+				<!-- Create domain link -->
+				<div id="whizkey-link-domain">
+					<p>
+						Please select a website from the list to which you want to link <span class="domainname"></span>. Only websites that are not linked themselves can be chosen.
+					</p>
+					<p>
+						If you have not yet added the website that you wish to link to to your vault, please visit it first and add an account to it.
+					</p>
+					<select name="linkto" id="linkto"></select>
+					<div style="height: 5px;"></div>
+					<!--<input type="button" id="linkto-submit" name="linkto-submit" value="Link">-->
+					<div class="buttoncontainer">
+						<div id="linkto-submit" class="buttondefault blockbutton">
+							<div class="button-text">Link</div>
+						</div>
+					</div>
+					<div style="height: 5px;"></div>
+					<div id="linkto-status"></div>
+					<hr class="light">
+					<a href="#" class="whizkey-return">&lt; Return</a>
+				</div>
+
+			</div>
+		</div>
+	</body>
+</html>

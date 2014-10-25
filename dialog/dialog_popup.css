@@ -1,0 +1,310 @@
+html, body
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+body
+{
+	background: #ffffff;
+	color: #444444;
+}
+
+a
+{
+	text-decoration: none;
+	color: #219b8e;
+}
+
+a:hover
+{
+	color: #0f3647;
+}
+
+#wrapper
+{
+	/*width: 500px;*/
+	padding: 15px;
+	font-family: Arial, sans-serif;
+}
+
+#header
+{
+	text-align: center;
+}
+
+h1
+{
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-size: 16px;
+}
+
+#logo img
+{
+	width: 32px;
+}
+
+hr.light
+{
+	border: 0;
+	background-color: #eeeeee;
+	height: 1px;
+	
+}
+
+hr.dark
+{
+	border: 0;
+	background-color: #bbbbbb;
+	height: 1px;
+	
+}
+
+div.list div
+{
+	line-height: 20px;
+	padding-left: 5px;
+}
+
+div.list div:hover
+{
+	background-color: #f0f0ff;
+}
+
+.pointer 
+{
+	cursor: pointer;
+}
+
+#domain
+{
+	font-size: 24px;
+	display: inline;
+}
+
+#domain-link-title
+{
+	line-height: 24px;
+	font-size: 16px;
+	color: #777777;
+	display: inline;
+}
+
+input[type="password"]
+{
+	font-size: 20px;
+	width: 100%;
+	border-radius: 4px;
+	border: 2px solid #c8c8c8;
+	box-sizing: border-box;
+}
+
+input[type="password"]:focus
+{
+	border-color: #adbce6;
+	border-radius: 4px;
+	outline: 0;
+}
+
+input[type="password"].correct
+{
+	border-color: #afe6ad;
+}
+
+select
+{
+	font-size: 20px;
+	width: 100%;
+	border-radius: 4px;
+	border: 2px solid #c8c8c8;
+	box-sizing: border-box;
+}
+
+select:focus
+{
+	border-color: #adbce6;
+	border-radius: 4px;
+	outline: 0;
+}
+
+#add-acount-container
+{
+	padding-top: 2px;
+	text-align: right;
+	padding-right: 3px;
+}
+
+#using-vault
+{
+	color: #a0a0a0;
+	font-size: 9px;
+}
+
+#generated-password-label
+{
+	font-size: 20px;
+}
+
+#password
+{
+	font-size: 20px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+#linkto
+{
+	font-size: 20px;
+	width: 100%;
+}
+
+
+#whizkey-result
+{
+	display: none;
+}
+
+#whizkey-new-account
+{
+	display: none;
+}
+
+#whizkey-new-advanced
+{
+	display: none;
+}
+
+#whizkey-link-domain
+{
+	display: none;
+}
+
+#whizkey-new-success
+{
+	display: none;
+}
+
+#newaccount-name
+{
+	font-size: 20px;
+	width: 100%;
+}
+
+#newaccount-count
+{
+	font-size: 16px;
+	width: 50px;
+}
+
+#default-vault
+{
+	font-style: italic;
+}
+
+.blockbutton
+{
+	border-bottom: 2px solid #000000;
+	border-radius: 4px;
+}
+
+.blockbutton:active
+{
+	margin-top: 2px;
+	border-bottom: 0;
+}
+
+.buttondefault
+{
+	height: 33px;
+	background-color: #3e5966;
+	width: 100%;
+	border-radius: 4px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.buttoncontainer
+{
+	overflow: hidden;
+}
+
+.buttondefault:hover
+{
+	background-color: #4b6470;
+}
+
+#generated
+{
+	height: 35px;
+	overflow: hidden;
+	display: none;
+}
+
+#generate-button
+{
+}
+
+#generate-button:hover
+{
+}
+
+.button-text
+{
+	padding: 5px;
+	color: #ffffff;
+	font-size: 20px;
+	text-align: center;
+}
+
+#password-generated
+{
+	height: 33px;
+	background-color: #6d8b9a;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	margin-right: 50px;
+	cursor: pointer;
+	
+	text-align: center;
+}
+
+#password-generated .button-text
+{
+	display: inline-block;
+	margin-top: 4px;
+	height: 14px;
+	vertical-align: middle;
+}
+
+#password-copy
+{
+	background-image: url('../images/png/clipboard88-n.png');
+	background-size: 18px 23px;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	
+	height: 33px;
+	background-color: #3e5966;
+	float: right;
+	width: 50px;
+	border-left: 1px solid #c8c8c8;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	cursor: pointer;
+}
+
+#generated-nomask
+{
+	display: none;
+}
+
+#password-nomask
+{
+	height: 33px;
+	background-color: #6d8b9a;
+	width: 100%;
+	border-radius: 4px;
+	box-sizing: border-box;
+	text-align: center;
+}

@@ -1,0 +1,197 @@
+{
+	// Popup page
+	"popup_create_new_vault":
+	{
+		"message": "Create new vault"
+	},
+	"popup_get_page_password":
+	{
+		"message":  "Get password"
+	},
+	"popup_vault_select":
+	{
+		"message": "Vault: "
+	},
+	"popup_options":
+	{
+		"message": "Options"
+	},
+	"popup_about":
+	{
+		"message": "About Whizkey"
+	},
+	
+	
+	// About page
+	"about_introduction":
+	{
+		"message": "Whizkey will generate unique passwords for all websites you use."
+	},
+	"about_version":
+	{
+		"message": "Version: "
+	},
+	"about_copyright":
+	{
+		"message": "Copyright &copy; 2014 - Thomas Churchman"
+	},
+	
+	// Password dialog
+	"dialog_domain":
+	{
+		"message": "Domain: "
+	},
+	"dialog_username":
+	{
+		"message": "Username: "
+	},
+	"dialog_master_password":
+	{
+		"message": "Master Password: "
+	},
+	"dialog_gen_submit":
+	{
+		"message": "Generate"
+	},
+	"dialog_gen_cancel":
+	{
+		"message": "Cancel"
+	},
+	
+	// Options page
+	"option_general":
+	{
+		"message": "General"
+	},
+	"option_vaults":
+	{
+		"message": "Vaults"
+	},
+	"option_add_vault":
+	{
+		"message": "Add Vault"
+	},
+	"option_export":
+	{
+		"message": "Export"
+	},
+	"option_import":
+	{
+		"message": "Import"
+	},
+	"option_general_title":
+	{
+		"message": "General"
+	},
+	"option_vaults_title":
+	{
+		"message": "Vaults"
+	},
+	"option_vault_table_introduction":
+	{
+		"message": "Click on a vault to change its settings or to remove it."
+	},
+	"option_vault_table_header_name":
+	{
+		"message": "Name"
+	},
+	"option_vault_table_header_data":
+	{
+		"message": "Data"
+	},
+	"option_vault_linked_to":
+	{
+		"message": "Linked to"
+	},
+	"option_add_vault_title":
+	{
+		"message": "Add Vault"
+	},
+	"option_add_vault_introduction":
+	{
+		"message": "<p>Please provide the following information to create a new vault. The vault name will not be used in generating passwords, so you do not have to remember it.</p><p>In principle, each person should only have a single vault.</p>"
+	},
+	"option_add_vault_vault_name":
+	{
+		"message": "Vault Name:"
+	},
+	"option_add_vault_will_be_used_to_generate":
+	{
+		"message": "The following will be used to generate passwords. Make sure you'll be able to reproduce this information."
+	},
+	"option_add_vault_password":
+	{
+		"message": "Master password"
+	},
+	"option_add_vault_password_confirm":
+	{
+		"message": "Confirm master password"
+	},
+	"option_add_vault_first_name":
+	{
+		"message": "Your first name"
+	},
+	"option_add_vault_birthplace":
+	{
+		"message": "Place of birth"
+	},
+	"option_add_vault_submit_button":
+	{
+		"message": "Add vault"
+	},
+	"option_add_vault_success":
+	{
+		"message": "The vault has been added."
+	},
+	"option_export_title":
+	{
+		"message": "Export"
+	},
+	"option_export_introduction":
+	{
+		"message": "To export your vaults, click on the text below, copy it and save it on your computer."
+	},
+	"option_import_title":
+	{
+		"message": "Import"
+	},
+	"option_import_introduction":
+	{
+		"message": "To import vaults, copy the backup into the field below and hit &quot;import&quot;. The vaults will be merged."
+	},
+	"option_import_button":
+	{
+		"message": "Import"
+	},
+	
+	// Password types
+	"ptype_count":
+	{
+		"message": "Count"
+	},
+	"ptype_type":
+	{
+		"message": "Type"
+	},
+	"ptype_secure":
+	{
+		"message": "Secure"
+	},
+	"ptype_long":
+	{
+		"message": "Long"
+	},
+	"ptype_medium":
+	{
+		"message": "Medium"
+	},
+	"ptype_short":
+	{
+		"message": "Short"
+	},
+	"ptype_pin":
+	{
+		"message": "PIN"
+	}
+	
+}
