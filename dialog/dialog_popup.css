@@ -128,6 +128,17 @@ select:focus
 	outline: 0;
 }
 
+#passwordCorrect
+{
+	width: 16px;
+	height: 12px;
+	background-image: url('../images/png/check52.png');
+	position: absolute;
+	top: 8px;
+	right: 5px;
+	display: none;
+}
+
 #add-acount-container
 {
 	padding-top: 2px;

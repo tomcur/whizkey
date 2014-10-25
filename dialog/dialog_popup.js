@@ -23,10 +23,6 @@ function SaveVault(vault)
 	});
 }
 
-//var hashtest = CryptoJS.SHA512("test");
-//console.log("hash: " + hashtest);
-
-
 /**
 * Populate dialog information
 */
@@ -164,9 +160,34 @@ function AddAccount()
 */
 function Generate()
 {
+	var masterPassword = $('#masterPassword').val();
+
+	var msg = masterPassword + vault.GetFirstName().toLowerCase() + vault.GetBirthplace().toLowerCase();
+	var md = forge.md.sha512.create();
+	md.update(msg);
+	var hash = md.digest().toHex();
+	
+	if(hash != vault.GetHash())
+	{
+		// Shake the password box if the password is wrong
+		$("#masterPassword").css({"position": "absolute"});
+		$("#masterPassword").animate({left: '5px'}, 100, function()
+		{
+			$("#masterPassword").animate({left: '-5px'}, 100, function()
+			{
+				$("#masterPassword").animate({left: '5px'}, 100, function()
+				{
+					$("#masterPassword").animate({left: '0px'}, 100);
+				});
+			});
+		});
+		
+		return;
+	}
+	
+	
 	var accountID = $('#account').val();
 	var account = accounts[accountID];
-	var masterPassword = $('#masterPassword').val();
 	
 	password = GeneratePassword(vault, account["domain"], account["account"], masterPassword);
 	
@@ -232,6 +253,34 @@ function CopyToClipboard(text)
     copyFrom.remove();
 }
 
+/**
+* Checks whether the master password is correct.
+*/
+function CheckPassword()
+{
+	var masterPassword = $("#masterPassword").val();
+	
+	var msg = masterPassword + vault.GetFirstName().toLowerCase() + vault.GetBirthplace().toLowerCase();
+	var md = forge.md.sha512.create();
+	md.update(msg);
+	var hash = md.digest().toHex();
+	
+	if(hash == vault.GetHash())
+	{
+		if(!$("#passwordCorrect").is(":visible"))
+		{
+			$("#passwordCorrect").fadeIn(250);
+		}
+	}
+	else
+	{
+		if($("#passwordCorrect").is(":visible"))
+		{
+			$("#passwordCorrect").fadeOut(250);
+		}
+	}
+}
+
 $(function()
 {
 	password = "";
@@ -264,6 +313,10 @@ $(function()
 		MessageBackground({greeting: "closeIFrame"});
 	});
 	
+	$("#masterPassword").keyup(function()
+	{
+		CheckPassword();
+	});
 	
 	// Generate, show, and copy buttons
 	$("#generate-button").click(function()
