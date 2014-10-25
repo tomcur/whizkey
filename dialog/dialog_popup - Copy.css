@@ -1,0 +1,146 @@
+html, body
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+body
+{
+	background: #ffffff;
+}
+
+#wrapper
+{
+	/*width: 500px;*/
+	padding: 15px;
+	font-family: Arial, sans-serif;
+}
+
+#header
+{
+	text-align: center;
+}
+
+#logo img
+{
+	width: 32px;
+}
+
+hr.light
+{
+	border: 0;
+	background-color: #eeeeee;
+	height: 1px;
+	
+}
+
+hr.dark
+{
+	border: 0;
+	background-color: #bbbbbb;
+	height: 1px;
+	
+}
+
+div.list div
+{
+	line-height: 20px;
+	padding-left: 5px;
+}
+
+div.list div:hover
+{
+	background-color: #f0f0ff;
+}
+
+.pointer 
+{
+	cursor: pointer;
+}
+
+#domain
+{
+	font-size: 24px;
+	display: inline;
+}
+
+#domain-link-title
+{
+	line-height: 24px;
+	font-size: 16px;
+	color: #777777;
+	display: inline;
+}
+
+#masterPassword
+{
+	font-size: 20px;
+	width: 100%;
+}
+
+#generated-password-label
+{
+	font-size: 20px;
+}
+
+#password
+{
+	font-size: 20px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+#account
+{
+	font-size: 20px;
+	width: 100%;
+}
+
+#linkto
+{
+	font-size: 20px;
+	width: 100%;
+}
+
+
+#whizkey-result
+{
+	display: none;
+}
+
+#whizkey-new-account
+{
+	display: none;
+}
+
+#whizkey-new-advanced
+{
+	display: none;
+}
+
+#whizkey-link-domain
+{
+	display: none;
+}
+
+#whizkey-new-success
+{
+	display: none;
+}
+
+#newaccount-name
+{
+	font-size: 20px;
+	width: 100%;
+}
+
+#newaccount-count
+{
+	font-size: 16px;
+	width: 50px;
+}
+
+#default-vault
+{
+	font-style: italic;
+}

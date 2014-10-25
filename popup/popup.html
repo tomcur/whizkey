@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Whizkey</title>
+		<link rel="stylesheet" href="popup.css"/>
+		<script src="../jquery/jquery.min.js"></script>
+		<script src="../functions.js"></script>
+		<script src="popup.js"></script>    
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="header">
+				<div id="logo">
+					<img src="../images/icon-cropped.png">
+				</div>
+				<h1>Whizkey</h1>
+				<hr class="light">
+			</div>
+			<div id="content">
+			
+				<div class="list">
+					<div id="vault-selection">
+						<label for="vault" data-i18n="popup_vault_select"></label>
+						<select name="vault" id="vault">
+						</select>
+					</div>
+					
+					<div id="new-vault" class="pointer" data-i18n="popup_create_new_vault">
+					</div>
+				</div>
+			
+				<hr class="dark">
+			
+				<div class="list">
+					<div id="get-password" class="pointer" data-i18n="popup_get_page_password">
+					</div>
+				</div>
+				
+				<hr class="dark">
+				
+				<div class="list">
+					<div id="options" class="pointer" data-i18n="popup_options">
+					</div>
+					<div id="about" class="pointer" data-i18n="popup_about">
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</body>
+</html>
+
