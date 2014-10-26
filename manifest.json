@@ -1,12 +1,19 @@
 {
 	"manifest_version": 2,
 
-	"name": "PPG",
-	"description": "Procedural Password Generator.",
-	"version": "0.1",
+	"name": "Whizkey",
+	"description": "Generates reproducible passwords from website data and user info. Manages the websites and accounts in vaults.",
+	"version": "0.1.1",
 	"options_page": "options/options.html",
 	"default_locale": "en",
 
+	"icons": 
+	{ 
+		"16": "images/icon_16.png",
+		"48": "images/icon_48.png",
+		"128": "images/icon_128.png" 
+	},
+	
 	"permissions": [
 		"tabs",
 		"storage",
