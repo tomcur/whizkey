@@ -38,7 +38,7 @@ function DataToPassword(firstName, birthPlace, domain, accountName, counter, mas
 	this.GetLongPassword = function()
 	{
 		start = ['Cvcv', 'Cvvc', 'CvCv'];
-		middle = ['Cvcv', 'Cvvc'];
+		middle = ['Cvcv', 'Cvvc', 'CvCv'];
 		addOn = ['#n', '#n'];
 		
 		total = [];
@@ -95,10 +95,7 @@ function DataToPassword(firstName, birthPlace, domain, accountName, counter, mas
 					for(var a1 in addOn)
 					{
 						total.push(start[s] + addOn[a1] + middle[m1] + middle[m2]);
-						total.push(start[s] + addOn[a1] + middle[m1] + middle[m2]);
-						total.push(start[s] + addOn[a1] + middle[m1] + middle[m2]);
 						
-						total.push(start[s] + middle[m1] + addOn[a1] + middle[m2]);
 						total.push(start[s] + middle[m1] + addOn[a1] + middle[m2]);
 						
 						total.push(start[s] + middle[m1] + middle[m2] + addOn[a1]);
