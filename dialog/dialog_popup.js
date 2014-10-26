@@ -155,13 +155,30 @@ function AddAccount()
 	}
 }
 
+function Shake(element)
+{
+	$(element).css({"position": "absolute"});
+	$(element).animate({left: '5px'}, 100, function()
+	{
+		$(element).animate({left: '-5px'}, 100, function()
+		{
+			$(element).animate({left: '5px'}, 100, function()
+			{
+				$(element).animate({left: '0px'}, 100);
+			});
+		});
+	});
+}
+
 /**
 * Generates a password for the given account and shows it.
 */
 function Generate()
 {
 	var masterPassword = $('#masterPassword').val();
-
+	var accountID = $('#account').val();
+	var account = accounts[accountID];
+	
 	var msg = masterPassword + vault.GetFirstName().toLowerCase() + vault.GetBirthplace().toLowerCase();
 	var md = forge.md.sha512.create();
 	md.update(msg);
@@ -170,24 +187,15 @@ function Generate()
 	if(hash != vault.GetHash())
 	{
 		// Shake the password box if the password is wrong
-		$("#masterPassword").css({"position": "absolute"});
-		$("#masterPassword").animate({left: '5px'}, 100, function()
-		{
-			$("#masterPassword").animate({left: '-5px'}, 100, function()
-			{
-				$("#masterPassword").animate({left: '5px'}, 100, function()
-				{
-					$("#masterPassword").animate({left: '0px'}, 100);
-				});
-			});
-		});
-		
+		Shake($("#masterPassword"));
 		return;
 	}
 	
+	if(accountID == "" || accountID == null)
+	{
+		Shake($("#account"));
+	}	
 	
-	var accountID = $('#account').val();
-	var account = accounts[accountID];
 	
 	password = GeneratePassword(vault, account["domain"], account["account"], masterPassword);
 	
@@ -285,6 +293,7 @@ $(function()
 {
 	password = "";
 
+	// Fill with translation
 	PageI18N();
 	
 	// Hide password by default, add toggle button
@@ -300,6 +309,7 @@ $(function()
 		});
 	});
 	
+	// Link website link
 	$("#linkwebsite").click(function()
 	{
 		$("#whizkey-gen").hide(100, function()
@@ -308,14 +318,22 @@ $(function()
 		});
 	});
 	
+	// Close text
 	$("#close-button").click(function()
 	{
 		MessageBackground({greeting: "closeIFrame"});
 	});
 	
-	$("#masterPassword").keyup(function()
+	// Master password, on key up
+	$("#masterPassword").keyup(function(e)
 	{
 		CheckPassword();
+		
+		// Enter pressed, generate the password
+		if(e.which == 13) 
+		{
+			Generate();
+		}
 	});
 	
 	// Generate, show, and copy buttons
@@ -335,6 +353,7 @@ $(function()
 		$("#generated-nomask").show();
 	});
 	
+	// Add account link
 	$("#newaccount").click(function()
 	{
 		$("#whizkey-gen").hide(100, function()
@@ -343,6 +362,7 @@ $(function()
 		});
 	});
 	
+	// "Advanced" checkbox
 	$("#newaccount-advanced").on('change', function()
 	{
 		if(this.checked)
@@ -355,11 +375,13 @@ $(function()
 		}
 	});
 	
+	// Add account button
 	$("#newaccount-submit").click(function()
 	{
 		AddAccount();
 	});
 	
+	// Link account button
 	$("#linkto-submit").click(function()
 	{
 		LinkDomain();
