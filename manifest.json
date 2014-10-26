@@ -3,7 +3,7 @@
 
 	"name": "Whizkey",
 	"description": "Generates reproducible passwords from website data and user info. Manages the websites and accounts in vaults.",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"options_page": "options/options.html",
 	"default_locale": "en",
 
