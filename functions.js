@@ -286,7 +286,7 @@ function Vault(vault)
  */
 function ChecksumHash(password, firstName, birthplace)
 {
-	var salt = firstName.toLowerCase() + birthplace.toLowerCase()
+	var salt = firstName.toLowerCase() + birthplace.toLowerCase();
 	
 	var md = forge.md.sha512.create();
 	md.update(password + salt);
