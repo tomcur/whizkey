@@ -295,10 +295,14 @@ function ChecksumHash(password, firstName, birthplace)
 	// Iterate for a bit of extra security
 	for(var i = 0; i < 100; i++)
 	{
-		md.update(salt + hash);
+		var msg = salt + hash;
+		//var md = forge.md.sha512.create();
+		md.start();
+		md.update(msg);
 		hash = md.digest().toHex();
+		//console.log(i + ": \"" + msg + "\" --- \"" + hash + "\"");
 	}
-	
+	console.log(hash);
 	return hash;
 }
 

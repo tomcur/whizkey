@@ -47,6 +47,7 @@ function DataToPassword(firstName, birthPlace, domain, accountName, counter, mas
 	// Iterate for a bit of extra security
 	for(var i = 0; i < 100; i++)
 	{
+		md.start();
 		md.update(salt + hash);
 		hash = md.digest().toHex();
 	}
