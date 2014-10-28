@@ -104,7 +104,7 @@ function DataToPassword(firstName, birthPlace, domain, accountName, counter, mas
 	{
 		start = ['Cvcv', 'Cvvc', 'CvCv'];
 		middle = ['Cvcv', 'Cvvc', 'CvCv'];
-		addOn = ['n#', '#n'];
+		addOn = ['#n', 'n#'];
 		
 		total = [];
 		

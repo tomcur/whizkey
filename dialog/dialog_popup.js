@@ -268,10 +268,19 @@ function CheckPassword()
 {
 	var masterPassword = $("#masterPassword").val();
 	
-	var msg = masterPassword + vault.GetFirstName().toLowerCase() + vault.GetBirthplace().toLowerCase();
+	/*var msg = masterPassword + vault.GetFirstName().toLowerCase() + vault.GetBirthplace().toLowerCase();
 	var md = forge.md.sha512.create();
 	md.update(msg);
 	var hash = md.digest().toHex();
+	//var hash = md.digest();
+	for(var i = 0; i < 100; i++)
+	{
+		//console.log(hash);
+		md.update(hash);
+		hash = md.digest().toHex();
+	}*/
+	
+	var hash = ChecksumHash(masterPassword, vault.GetFirstName(), vault.GetBirthplace());
 	
 	if(hash == vault.GetHash())
 	{

@@ -132,11 +132,8 @@ function AddVault()
 		$("#addvault_status").html("You already have a vault with that name. Please enter a new vault name.");
 	}
 	else
-	{
-		var msg = password + firstName.toLowerCase() + birthplace.toLowerCase();
-		var md = forge.md.sha512.create();
-		md.update(msg);
-		var hash = md.digest().toHex();
+	{		
+		var hash = ChecksumHash(password, firstName, birthplace);
 		
 		bg.vaults.push({"name": vaultName, "firstName": firstName, "birthplace": birthplace, "hash": hash, "store": []});
 		bg.SaveVaults();
