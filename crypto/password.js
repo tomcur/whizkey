@@ -33,19 +33,25 @@ function DataToPassword(firstName, birthPlace, domain, accountName, counter, mas
 {
 	var byteToChar = new ByteToChar();
 	
-	// Concatenate the data
-	var msg = firstName.toLowerCase()
+	var salt = firstName.toLowerCase()
 		+ birthPlace.toLowerCase()
 		+ domain.toLowerCase()
 		+ accountName.toLowerCase()
-		+ counter
-		+ masterPassword;
+		+ counter;
 	
 	// Digest and convert the data to an array of byte values
 	var md = forge.md.sha512.create();
-	md.update(msg);
-	var hex = md.digest().toHex();
-	var bytes = forge.util.hexToBytes(hex);
+	md.update(salt + masterPassword);
+	var hash = md.digest().toHex();
+	
+	// Iterate for a bit of extra security
+	for(var i = 0; i < 100; i++)
+	{
+		md.update(salt + hash);
+		hash = md.digest().toHex();
+	}
+	
+	var bytes = forge.util.hexToBytes(hash);
 	b = [];
 	for (var i = 0; i < bytes.length; i++ ) 
 	{

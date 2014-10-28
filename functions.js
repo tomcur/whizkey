@@ -289,13 +289,13 @@ function ChecksumHash(password, firstName, birthplace)
 	var salt = firstName.toLowerCase() + birthplace.toLowerCase();
 	
 	var md = forge.md.sha512.create();
-	md.update(password + salt);
+	md.update(salt + password);
 	var hash = md.digest().toHex();
 	
 	// Iterate for a bit of extra security
 	for(var i = 0; i < 100; i++)
 	{
-		md.update(hash + salt);
+		md.update(salt + hash);
 		hash = md.digest().toHex();
 	}
 	

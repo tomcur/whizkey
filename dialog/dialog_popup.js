@@ -1,8 +1,8 @@
 /**
-* Send a message to the background thread.
-* @param {object} msg The message to send.
-* @param {function} callback The callback to call.
-*/
+ * Send a message to the background thread.
+ * @param {object} msg The message to send.
+ * @param {function} callback The callback to call.
+ */
 function MessageBackground(msg, callback)
 {
 	chrome.runtime.sendMessage(msg, function(response) 
@@ -12,9 +12,9 @@ function MessageBackground(msg, callback)
 }
 
 /**
-* Send the new vault to the background thread for saving.
-* @param {vault} vault The vault to save.
-*/
+ * Send the new vault to the background thread for saving.
+ * @param {vault} vault The vault to save.
+ */
 function SaveVault(vault)
 {
 	MessageBackground({greeting: "saveVault", data: vault.vault}, function(response)
@@ -24,8 +24,8 @@ function SaveVault(vault)
 }
 
 /**
-* Populate dialog information
-*/
+ * Populate dialog information
+ */
 function Populate()
 {	
 	if(!vault.IsVault())
@@ -101,8 +101,8 @@ function Populate()
 }
 
 /**
-* Add an account
-*/
+ * Add an account
+ */
 function AddAccount()
 {
 	var name = $("#newaccount-name").val();
@@ -155,6 +155,10 @@ function AddAccount()
 	}
 }
 
+/**
+ * Shake an UI element.
+ * @param {selector} element A UI element selector.
+ */
 function Shake(element)
 {
 	$(element).css({"position": "absolute"});
@@ -171,18 +175,15 @@ function Shake(element)
 }
 
 /**
-* Generates a password for the given account and shows it.
-*/
+ * Generates a password for the given account and shows it.
+ */
 function Generate()
 {
 	var masterPassword = $('#masterPassword').val();
 	var accountID = $('#account').val();
 	var account = accounts[accountID];
 	
-	var msg = masterPassword + vault.GetFirstName().toLowerCase() + vault.GetBirthplace().toLowerCase();
-	var md = forge.md.sha512.create();
-	md.update(msg);
-	var hash = md.digest().toHex();
+	var hash = ChecksumHash(masterPassword, vault.GetFirstName(), vault.GetBirthplace());
 	
 	if(hash != vault.GetHash())
 	{
@@ -212,8 +213,8 @@ function Generate()
 }
 
 /**
-* Add the domain link.
-*/
+ * Add the domain link.
+ */
 function LinkDomain()
 {
 	var linkTo = $("#linkto").val();
@@ -248,9 +249,9 @@ function LinkDomain()
 }
 
 /**
-* Copy text to clipboard.
-* @param {string} text The text to copy.
-*/
+ * Copy text to clipboard.
+ * @param {string} text The text to copy.
+ */
 function CopyToClipboard(text)
 {
     var copyFrom = $('<textarea/>');
@@ -262,8 +263,8 @@ function CopyToClipboard(text)
 }
 
 /**
-* Checks whether the master password is correct.
-*/
+ * Checks whether the master password is correct.
+ */
 function CheckPassword()
 {
 	var masterPassword = $("#masterPassword").val();
