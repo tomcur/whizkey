@@ -278,6 +278,31 @@ function Vault(vault)
 }
 
 /**
+ * Calculate the checksum of the password.
+ * @param {string} password The password to get the checksum of.
+ * @param {string} firstName The first name to use in the salt
+ * @param {string} birthplace The birthplace to use in the salt
+ * @returns The checksum of the password.
+ */
+function ChecksumHash(password, firstName, birthplace)
+{
+	var salt = firstName.toLowerCase() + birthplace.toLowerCase()
+	
+	var md = forge.md.sha512.create();
+	md.update(password + salt);
+	var hash = md.digest().toHex();
+	
+	// Iterate for a bit of extra security
+	for(var i = 0; i < 100; i++)
+	{
+		md.update(hash + salt);
+		hash = md.digest().toHex();
+	}
+	
+	return hash;
+}
+
+/**
 * Replaces placeholders in the current DOM with translations 
 * from the appropriate messages.json.
 */
