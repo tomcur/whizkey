@@ -185,7 +185,8 @@ function Generate()
 	
 	var hash = ChecksumHash(masterPassword, vault.GetFirstName(), vault.GetBirthplace());
 	
-	if(hash != vault.GetHash())
+	//if(hash != vault.GetHash())
+    if(!CheckPassword())
 	{
 		// Shake the password box if the password is wrong
 		Shake($("#masterPassword"));
@@ -263,9 +264,10 @@ function CopyToClipboard(text)
 }
 
 /**
- * Checks whether the master password is correct.
+ * Checks whether the given master password is correct.
+ * @returns {boolean} True if the password is correct, false otherwise.
  */
-function CheckPassword()
+function CheckPassword(masterPassword)
 {
 	var masterPassword = $("#masterPassword").val();
 	
@@ -289,6 +291,8 @@ function CheckPassword()
 		{
 			$("#passwordCorrect").fadeIn(250);
 		}
+        
+        return true;
 	}
 	else
 	{
@@ -296,6 +300,8 @@ function CheckPassword()
 		{
 			$("#passwordCorrect").fadeOut(250);
 		}
+        
+        return false;
 	}
 }
 
@@ -337,7 +343,7 @@ $(function()
 	// Master password, on key up
 	$("#masterPassword").keyup(function(e)
 	{
-		CheckPassword();
+		// CheckPassword();
 		
 		// Enter pressed, generate the password
 		if(e.which == 13) 

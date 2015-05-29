@@ -1,56 +1,65 @@
 /**
-* Class representing a vault and the methods that
-* can be performed on it.
-*/
+ * Class representing a vault and the methods that
+ * can be performed on it.
+ *
+ * @class Vault
+ * @param {Vault} vault - A whizkey vault
+ */
 function Vault(vault)
 {
 	this.vault = vault;
 	
 	/**
-	* @returns {string} Vault name
-	*/
+	 * @returns {string} Vault name
+     * @memberof Vault
+	 */
 	this.GetName = function()
 	{
 		return this.vault.name;
 	};
 	
 	/**
-	* @returns {string} First Name
-	*/
+	 * @returns {string} First Name
+     * @memberof Vault
+	 */
 	this.GetFirstName = function()
 	{
 		return this.vault.firstName;
 	};
 	
 	/**
-	* @returns {string} Birthplace
-	*/
+	 * @returns {string} Birthplace
+     * @memberof Vault
+	 */
 	this.GetBirthplace = function()
 	{
 		return this.vault.birthplace;
 	};
 	
 	/**
-	* @returns {string} Hash
-	*/
+	 * @returns {string} Hash
+     * @memberof Vault
+	 */
 	this.GetHash = function()
 	{
 		return this.vault.hash;
 	};
 	
 	/**
-	* Checks whether the vault object contains an actual vault.
-	* @returns {boolean} True if object is a vault, false otherwise.
-	*/
+	 * Checks whether the vault object contains an actual vault.
+	 * @returns {boolean} True if object is a vault, false otherwise.
+     * @memberof Vault
+	 */
 	this.IsVault = function()
 	{
 		return this.vault != null;
 	};
 	
 	/**
-	* Get list of names of domains in the vault.
-	* @returns {boolean} The list of domain names in the vault.
-	*/
+	 * Get list of names of domains in the vault.
+	 * @returns {boolean} The list of domain names in the vault.
+     * @memberof Vault
+	 */
 	this.GetDomainNames = function()
 	{
 		var list = [];
@@ -63,10 +72,11 @@ function Vault(vault)
 	};
 	
 	/**
-	* Add a domain to the vault.
-	* @param {string} domain The domain to add.
-	* @returns {boolean} True if domain was added, false otherwise.
-	*/
+	 * Add a domain to the vault.
+	 * @param {string} domain The domain to add.
+	 * @returns {boolean} True if domain was added, false otherwise.
+     * @memberof Vault
+	 */
 	this.AddDomain = function(domain)
 	{
 		var list = this.GetDomainNames();
@@ -82,11 +92,12 @@ function Vault(vault)
 	};
 	
 	/**
-	* Get the key of the domain (i.e., this.vault.store[key]).
-	* @param {string} domain The domain.
-	* @returns {number} The key of the domain or -1 if
-	* the domain does not exist.
-	*/
+	 * Get the key of the domain (i.e., this.vault.store[key]).
+	 * @param {string} domain The domain.
+	 * @returns {number} The key of the domain or -1 if
+	 * the domain does not exist.
+     * @memberof Vault
+	 */
 	this.GetDomainKey = function(domain)
 	{
 		for(var key in this.vault.store)
@@ -101,10 +112,11 @@ function Vault(vault)
 	};
 	
 	/**
-	* Add the domain if it does not exist and get the key.
-	* @param {string} domain The domain.
-	* @returns {number} The key of the domain.
-	*/
+	 * Add the domain if it does not exist and get the key.
+	 * @param {string} domain The domain.
+	 * @returns {number} The key of the domain.
+     * @memberof Vault
+	 */
 	this.GetDomainKeyAddIfNotExists = function(domain)
 	{
 		this.AddDomain(domain);
@@ -112,9 +124,10 @@ function Vault(vault)
 	};
 	
 	/**
-	* Get a list of account names in the domain.
-	* @param {string} domain The domain to grab accounts for.
-	*/
+	 * Get a list of account names in the domain.
+	 * @param {string} domain The domain to grab accounts for.
+     * @memberof Vault
+	 */
 	this.GetAccounts = function(domain)
 	{
 		var key = this.GetDomainKey(domain);
@@ -144,10 +157,11 @@ function Vault(vault)
 	};
 	
 	/**
-	* Add an account to a domain in the vault.
-	* @param {name: string, count: number} account The account to add.
-	* @param {string} domain The domain to add.
-	*/
+	 * Add an account to a domain in the vault.
+	 * @param {{name: string, count: number}} account The account to add.
+	 * @param {string} domain The domain to add.
+     * @memberof Vault
+	 */
 	this.AddAccount = function(account, domain)
 	{
 		//Add the domain if it does not exist and get its key		
@@ -171,11 +185,12 @@ function Vault(vault)
 	};
 	
 	/**
-	* Get an account from its name and the domain its in. Null if it does not exist.
-	* @param {string} account The account name.
-	* @param {string} domain The domain the account is in.
-	* @returns {name: string, count: number} The account or null if it does not exist.
-	*/
+	 * Get an account from its name and the domain its in. Null if it does not exist.
+	 * @param {string} account The account name.
+	 * @param {string} domain The domain the account is in.
+	 * @returns {{name: string, count: number}} The account or null if it does not exist.
+     * @memberof Vault
+	 */
 	this.GetAccount = function(account, domain)
 	{
 		var key = this.GetDomainKey(domain);
@@ -199,12 +214,13 @@ function Vault(vault)
 	};
 	
 	/**
-	* Get the domain the given domain is linked to. Null if
-	* the given domain is not linked to a domain.
-	* @param {string} domain The domain to get the link of.
-	* @returns {string} The name of the domain that the
-	* domain is linked to.
-	*/
+	 * Get the domain the given domain is linked to. Null if
+	 * the given domain is not linked to a domain.
+	 * @param {string} domain The domain to get the link of.
+	 * @returns {string} The name of the domain that the
+	 * domain is linked to.
+     * @memberof Vault
+	 */
 	this.GetDomainLink = function(domain)
 	{
 		var key = this.GetDomainKey(domain);
@@ -226,12 +242,13 @@ function Vault(vault)
 	};
 	
 	/**
-	* Set the domain a domain is linked to.
-	* @param {string} domain The domain to set a link for.
-	* @param {string} linkToDomain The domain the domain should
-	* be linked to.
-	* @returns {boolean} True if the link was set, false otherwise.
-	*/
+	 * Set the domain a domain is linked to.
+	 * @param {string} domain The domain to set a link for.
+	 * @param {string} linkToDomain The domain the domain should
+	 * be linked to.
+	 * @returns {boolean} True if the link was set, false otherwise.
+     * @memberof Vault
+	 */
 	this.SetDomainLink = function(domain, linkToDomain)
 	{
 		var key = this.GetDomainKeyAddIfNotExists(domain);
@@ -249,10 +266,11 @@ function Vault(vault)
 	}
 	
 	/**
-	* Unlink the domain.
-	* @param {string} domain The domain to unlink.
-	* @returns {boolean} True if the link was unlinked, false otherwise.
-	*/
+	 * Unlink the domain.
+	 * @param {string} domain The domain to unlink.
+	 * @returns {boolean} True if the link was unlinked, false otherwise.
+     * @memberof Vault
+	 */
 	this.UnlinkDomain = function(domain)
 	{
 		var key = this.GetDomainKey(domain);
@@ -266,10 +284,11 @@ function Vault(vault)
 	}
 	
 	/**
-	* Get the vault in JSON format.
-	* @param {number or string} indent Optional. Indentation of JSON output.
-	* @returns {string} JSON of the vault.
-	*/
+	 * Get the vault in JSON format.
+	 * @param {(number|string)} indent Optional. Indentation of JSON output.
+	 * @returns {string} JSON of the vault.
+     * @memberof Vault
+	 */
 	this.JSON = function(indent)
 	{
 		indent = typeof indent !== 'undefined' ? indent : 0;
@@ -288,12 +307,13 @@ function ChecksumHash(password, firstName, birthplace)
 {
 	var salt = firstName.toLowerCase() + birthplace.toLowerCase();
 	
+    /*
 	var md = forge.md.sha512.create();
 	md.update(salt + password);
 	var hash = md.digest().toHex();
 	
 	// Iterate for a bit of extra security
-	for(var i = 0; i < 100; i++)
+	for(var i = 0; i < 5000; i++)
 	{
 		var msg = salt + hash;
 		//var md = forge.md.sha512.create();
@@ -302,14 +322,22 @@ function ChecksumHash(password, firstName, birthplace)
 		hash = md.digest().toHex();
 		//console.log(i + ": \"" + msg + "\" --- \"" + hash + "\"");
 	}
+    */
+    
+    var hash = sha512(salt + password);
+    for(var i = 0; i < 5000; i++)
+    {
+        hash = sha512(salt + hash);
+    }
+    
 	console.log(hash);
 	return hash;
 }
 
 /**
-* Replaces placeholders in the current DOM with translations 
-* from the appropriate messages.json.
-*/
+ * Replaces placeholders in the current DOM with translations 
+ * from the appropriate messages.json.
+ */
 function PageI18N()
 {
 	$("[data-i18n]").each(
@@ -328,13 +356,13 @@ function PageI18N()
 }
 
 /**
-* Generates a password for the given account in the given vault.
-* @param {vault} vault The vault to generate a password from.
-* @param {string} domainName The domain name to generate for.
-* @param {string} accountName The account name to generate for.
-* @param {string} masterPassword The master password.
-* @returns {string} The password.
-*/
+ * Generates a password for the given account in the given vault.
+ * @param {vault} vault The vault to generate a password from.
+ * @param {string} domainName The domain name to generate for.
+ * @param {string} accountName The account name to generate for.
+ * @param {string} masterPassword The master password.
+ * @returns {string} The password.
+ */
 function GeneratePassword(vault, domainName, accountName, masterPassword)
 {
 	// Get account from domain name and account name

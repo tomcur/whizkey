@@ -21,13 +21,15 @@ THE SOFTWARE.
 */
 
 /**
-* Class that provides functionality to convert data into a password.
-* @params {string} firstName First name data.
-* @params {string} birthPlace Birthplace data.
-* @params {string} domain Domain data.
-* @params {string} accountName Account name data.
-* @params {string} counter Counter data.
-* @params {string} masterPassword Master password.
+ * Class that provides functionality to convert data into a password.
+ *
+ * @class DataToPassword
+ * @params {string} firstName First name data.
+ * @params {string} birthPlace Birthplace data.
+ * @params {string} domain Domain data.
+ * @params {string} accountName Account name data.
+ * @params {string} counter Counter data.
+ * @params {string} masterPassword Master password.
 */
 function DataToPassword(firstName, birthPlace, domain, accountName, counter, masterPassword)
 {
@@ -39,18 +41,20 @@ function DataToPassword(firstName, birthPlace, domain, accountName, counter, mas
 		+ accountName.toLowerCase()
 		+ counter;
 	
-	// Digest and convert the data to an array of byte values
+	/*
+    // Digest and convert the data to an array of byte values
 	var md = forge.md.sha512.create();
 	md.update(salt + masterPassword);
 	var hash = md.digest().toHex();
 	
 	// Iterate for a bit of extra security
-	for(var i = 0; i < 100; i++)
+	for(var i = 0; i < 500000; i++)
 	{
 		md.start();
 		md.update(salt + hash);
 		hash = md.digest().toHex();
 	}
+    
 	
 	var bytes = forge.util.hexToBytes(hash);
 	b = [];
@@ -58,12 +62,37 @@ function DataToPassword(firstName, birthPlace, domain, accountName, counter, mas
 	{
 		b.push(bytes.charCodeAt(i));
 	}	
-	
-	/**
-	* Generates an array of long password styles and uses that
-	* to call this.Password(-) to generate a password.
-	* @returns {string} The generated password.
 	*/
+    
+    
+    var hash = sha512(salt + masterPassword);
+    for(var i = 0; i < 4000; i++)
+    {
+        hash = sha512(salt + hash);
+    }
+    
+    
+    var b = [];
+    for(var i = 0; i < hash.length/2; i++)
+    {
+        b.push(parseInt("0x" + hash[i*2] + hash[i*2+1]));
+    }
+    
+    //var bytes = forge.util.hexToBytes(hash);
+    //b = [];
+	//for (var i = 0; i < bytes.length; i++ ) 
+	//{
+	//	b.push(bytes.charCodeAt(i));
+	//}	
+    
+    
+    
+	/**
+	 * Generates an array of long password styles and uses that
+	 * to call this.Password(-) to generate a password.
+	 * @returns {string} The generated password.
+     * @memberof DataToPassword
+	 */
 	this.GetLongPassword = function()
 	{
 		start = ['Cvcv', 'Cvvc', 'CvCv'];
@@ -103,10 +132,11 @@ function DataToPassword(firstName, birthPlace, domain, accountName, counter, mas
 	};
 		
 	/**
-	* Generates an array of medium password styles and uses that
-	* to call this.Password(-) to generate a password.
-	* @returns {string} The generated password.
-	*/
+	 * Generates an array of medium password styles and uses that
+	 * to call this.Password(-) to generate a password.
+	 * @returns {string} The generated password.
+     * @memberof DataToPassword
+	 */
 	this.GetMediumPassword = function()
 	{
 		start = ['Cvcv', 'Cvvc', 'CvCv'];
@@ -137,10 +167,11 @@ function DataToPassword(firstName, birthPlace, domain, accountName, counter, mas
 	};
 	
 	/**
-	* Creates a password from one of the password styles given.
-	* @param {array} passwords The password styles to choose from.
-	* @returns {string} The generated password.
-	*/
+	 * Creates a password from one of the password styles given.
+	 * @param {array} passwords The password styles to choose from.
+	 * @returns {string} The generated password.
+     * @memberof DataToPassword
+	 */
 	this.Password = function(passwords)
 	{
 		p = b[0] % passwords.length;
@@ -163,8 +194,8 @@ function DataToPassword(firstName, birthPlace, domain, accountName, counter, mas
 }
 
 /**
-* Class to provide byte to character conversion.
-*/
+ * Class to provide byte to character conversion.
+ */
 function ByteToChar()
 {
 	var c = 
@@ -209,11 +240,11 @@ function ByteToChar()
 	x = c.concat(C.concat(v.concat(V.concat(symbols.concat(n.concat(x))))));
 	
 	/**
-	* Convert one byte (as integer) to a character.
-	* @param {char} type The type of character to convert the byte to.
-	* @param {number} b The byte (as integer) to convert.
-	* @returns {char} The converted character.
-	*/
+	 * Convert one byte (as integer) to a character.
+	 * @param {char} type The type of character to convert the byte to.
+	 * @param {number} b The byte (as integer) to convert.
+	 * @returns {char} The converted character.
+	 */
 	this.GetChar = function(type, b)
 	{
 		switch(type)

@@ -20,9 +20,9 @@ chrome.runtime.onMessage.addListener(
 );
 
 /**
-* Opens an iframe on the current page to show the password generator.
-* Always opens the iframe on top of all other elements.
-*/
+ * Opens an iframe on the current page to show the password generator.
+ * Always opens the iframe on top of all other elements.
+ */
 function ShowDialog()
 {
 	//var ui = new PasswordUI();
@@ -40,9 +40,9 @@ function ShowDialog()
 }
 
 /**
-* Get the maximal z-index of all elements in the current dom.
-* @param {string} selector JQuery selector of elements to consider.
-*/
+ * Get the maximal z-index of all elements in the current dom.
+ * @param {string} selector JQuery selector of elements to consider.
+ */
 function GetMaxZ(selector)
 {
     return Math.max.apply(null, $(selector).map(function()

@@ -43,9 +43,9 @@ chrome.runtime.onMessage.addListener(
 );
  
 /**
-* Saves the provided vault. Overwrites if it exists already.
-* @param {vaultdata} vault The vault to save.
-*/
+ * Saves the provided vault. Overwrites if it exists already.
+ * @param {vaultdata} vault The vault to save.
+ */
 function SaveVault(vault)
 {
 	console.log("Saving: ");
@@ -67,8 +67,8 @@ function SaveVault(vault)
 }
  
 /**
-* Saves the current vaults to the local storage.
-*/
+ * Saves the current vaults to the local storage.
+ */
 function SaveVaults()
 {
 	console.log(vaults);
@@ -76,26 +76,26 @@ function SaveVaults()
 }
 
 /**
-* Saves the default vault to the local storage.
-*/
+ * Saves the default vault to the local storage.
+ */
 function SaveDefaultVault()
 {
 	chrome.storage.local.set({'defaultVault': defaultVault});
 }
 
 /**
-* Opens a url in a new tab.
-* @param {string} url The url of the page to open.
-*/
+ * Opens a url in a new tab.
+ * @param {string} url The url of the page to open.
+ */
 function OpenPage(url)
 {
 	chrome.tabs.create({url: url});
 }
 
 /**
-* Get the default vault (or the first if no default has been selected).
-* @returns {vaultdata} The default vault if it exists, null otherwise.
-*/
+ * Get the default vault (or the first if no default has been selected).
+ * @returns {vaultdata} The default vault if it exists, null otherwise.
+ */
 function GetDefaultVault()
 {
 	if(typeof defaultVault === 'undefined')
@@ -116,10 +116,10 @@ function GetDefaultVault()
 }
 
 /**
-* Get vault by name.
-* @param {string} name The vault name.
-* @returns {vaultdata} The vault associated with the name if it exists, null otherwise.
-*/
+ * Get vault by name.
+ * @param {string} name The vault name.
+ * @returns {vaultdata} The vault associated with the name if it exists, null otherwise.
+ */
 function GetVaultByName(name)
 {
 	for(var key in vaults)
@@ -135,8 +135,8 @@ function GetVaultByName(name)
 }
 
 /**
-* Opens/injects the password dialog on the current tab.
-*/
+ * Opens/injects the password dialog on the current tab.
+ */
 function PasswordDialog()
 {
 	// Send message to active tab
@@ -150,8 +150,8 @@ function PasswordDialog()
 }
 
 /**
-* Loads the settings and vaults
-*/
+ * Loads the settings and vaults
+ */
 function Load()
 {
 	chrome.storage.local.get(['vaults', 'defaultVault'], function(result)
@@ -167,8 +167,8 @@ function Load()
 }
 
 /**
-* Delete all local data.
-*/
+ * Delete all local data.
+ */
 function DeleteAllData()
 {
 	chrome.storage.local.clear();
