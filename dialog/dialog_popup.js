@@ -300,7 +300,7 @@ function CheckPassword(masterPassword)
 		{
 			$("#passwordCorrect").fadeOut(250);
 		}
-        
+		
         return false;
 	}
 }
